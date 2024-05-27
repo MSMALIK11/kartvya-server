@@ -3,7 +3,6 @@ import User from "../models/userModal";
 export const updateRole = async (req: Request, res: Response) => {
     const id = req.params.id
     const role = req.body
-    console.log('role', role, id)
     try {
         const updatedUser = await User.findOneAndUpdate({ _id: id }, role, { new: true })
         if (!updatedUser) {

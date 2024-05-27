@@ -27,6 +27,10 @@ const testCourseSchema: Schema<ITestSubjectDocument> = new Schema(
             type: String,
             trim: true,
         },
+        price: {
+            type: Number,
+            default: 0,
+        },
         shortDescription: {
             type: String,
             trim: true

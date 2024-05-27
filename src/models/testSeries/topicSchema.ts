@@ -1,16 +1,17 @@
 import mongoose, { Schema, Document, Types } from 'mongoose'
 export interface ITopicDocument extends Document {
-    subjectId: Schema.Types.ObjectId,
+    subjectId: mongoose.Types.ObjectId,
     title: string,
     totalQuestion: number,
     duration: number,
+    isPaid?: boolean,
     totalMark: number,
     totalAttempt: number,
     hasAccess: boolean,
 }
 const topicSchema: Schema<ITopicDocument> = new Schema({
     subjectId: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'TestSubject',
 
     },
@@ -35,6 +36,10 @@ const topicSchema: Schema<ITopicDocument> = new Schema({
     totalAttempt: {
         type: Number,
         default: 0
+    },
+    isPaid: {
+        type: Boolean,
+        default: true
     },
     hasAccess: {
         type: Boolean,

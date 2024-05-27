@@ -121,11 +121,12 @@ const currentUser = async (req: Request, res: Response) => {
         console.log('Error finding current user: ', error);
         return res.status(500).json({ success: false, message: 'Internal server error' });
     }
-}; const getAllUsers = async (req: Request, res: Response) => {
+};
+const getAllUsers = async (req: Request, res: Response) => {
     const users = await User.find()
     return res.status(200).json({
         success: true,
-        users
+        data: users
     })
 }
 // Change password

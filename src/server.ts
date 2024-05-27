@@ -4,6 +4,7 @@ import cors from 'cors'
 import router from './routes/router';
 import testSeriesRoutes from './routes/testSeriesRoute'
 import quizRoutes from './routes/quizRoutes';
+import answerSheetRoute from './routes/answerSheetRoutes'
 import cookieParser from "cookie-parser";
 import expressFileupload from 'express-fileupload';
 import { connection } from './config/db'
@@ -28,6 +29,8 @@ app.use('/api/quiz', quizRoutes)
 app.use('/api', testSeriesRoutes)
 // video lecture quiz
 app.use('/api', router)
+// Answersheet Routes
+app.use('/api/answersheet', answerSheetRoute)
 app.use("*", (req: Request, res: Response) => {
     const err = Error(`Requested path ${req.path} not found`);
     res.status(404).send({
